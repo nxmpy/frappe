@@ -4,6 +4,7 @@ import CheckControl from "./components/controls/CheckControl.vue";
 import CodeControl from "./components/controls/CodeControl.vue";
 import DataControl from "./components/controls/DataControl.vue";
 import GeolocationControl from "./components/controls/GeolocationControl.vue";
+import HTMLControl from "./components/controls/HTMLControl.vue";
 import ImageControl from "./components/controls/ImageControl.vue";
 import LinkControl from "./components/controls/LinkControl.vue";
 import RatingControl from "./components/controls/RatingControl.vue";
@@ -32,7 +33,7 @@ export function registerGlobalComponents(app) {
 		.component("FloatControl", DataControl)
 		.component("GeolocationControl", GeolocationControl)
 		.component("HeadingControl", ButtonControl)
-		.component("HTMLControl", DataControl)
+		.component("HTMLControl", HTMLControl)
 		.component("HTMLEditorControl", CodeControl)
 		.component("IconControl", DataControl)
 		.component("ImageControl", ImageControl)
