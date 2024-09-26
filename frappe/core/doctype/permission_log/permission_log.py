@@ -6,6 +6,24 @@ from frappe.model.document import Document
 
 
 class PermissionLog(Document):
+	# begin: auto-generated types
+	# This code is auto-generated. Do not modify anything in this block.
+
+	from typing import TYPE_CHECKING
+
+	if TYPE_CHECKING:
+		from frappe.types import DF
+
+		changed_at: DF.Datetime | None
+		changed_by: DF.Link | None
+		changes: DF.Text | None
+		for_doctype: DF.Link
+		for_document: DF.DynamicLink
+		reference: DF.DynamicLink | None
+		reference_type: DF.Link | None
+		status: DF.Literal["Updated", "Removed", "Added"]
+	# end: auto-generated types
+
 	@property
 	def changed_at(self):
 		return self.creation
@@ -64,9 +82,7 @@ def get_changes(doc: Document, doc_before_save=None, fields=None):
 
 	if not doc_before_save:
 		empty_changes = dict.fromkeys(current_changes, "")
-		return (
-			(current_changes, empty_changes) if doc.flags.in_insert else (empty_changes, current_changes)
-		)
+		return (current_changes, empty_changes) if doc.flags.in_insert else (empty_changes, current_changes)
 
 	previous_changes = get_filtered_changes(
 		doc_before_save.as_dict(
